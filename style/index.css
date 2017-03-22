@@ -1,0 +1,135 @@
+body {
+  background: #f8f8f8;
+}
+.box {
+  width: 300px;
+  border: 1px solid #07111b;
+}
+.box1 {
+  width: 300px;
+  border: 1px solid #07111b;
+  background: yellow;
+}
+.box2 {
+  border: 4px solid #ddd;
+  margin-top: 30px;
+}
+.box3 {
+  border: 10px solid #ddd;
+  margin-top: 30px;
+  width: 40px;
+  height: 50px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moliz-border-radius: 5px;
+}
+.sanjiao {
+  border-width: 100px;
+  border-color: transparent transparent transparent #ccc;
+  border-style: dashed dashed dashed solid;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+.posq {
+  height: 20px;
+  position: fixed;
+  background: red;
+  width: 280px;
+}
+.list {
+  width: 600px;
+  margin: auto;
+  list-style: none;
+  padding: 0;
+}
+.list li {
+  height: 30px;
+  line-height: 30px;
+  background: pink;
+  margin-bottom: 5px;
+}
+.list li a {
+  color: blue;
+}
+.list li a:hover {
+  color: red;
+}
+.list li span {
+  float: left;
+}
+.border_test {
+  border: 5px solid #ddd;
+  height: 20px;
+  width: 20px;
+}
+.test_03 {
+  width: calc(300px - 30px);
+}
+.tex {
+  position: absolute !important;
+}
+.border {
+  width: 200px;
+  height: 50px;
+  background: yellow;
+  position: relative;
+}
+.border:after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 1px;
+  border-top: 1px solid #C7C7C7;
+  color: #C7C7C7;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+@media (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5) {
+  .border:after {
+    -webkit-transform: scaleY(0.7);
+    transform: scaleY(0.7);
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-device-pixel-ratio: 2) {
+  .border:after {
+    -webkit-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+  }
+}
+.border:before {
+  content: " ";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 1px;
+  bottom: 0;
+  border-right: 1px solid #C7C7C7;
+  color: #C7C7C7;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+@media (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5) {
+  .border:before {
+    -webkit-transform: scaleY(0.7);
+    transform: scaleY(0.7);
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-device-pixel-ratio: 2) {
+  .border:before {
+    -webkit-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+  }
+}
+.img {
+  height: 75px;
+  width: 75px;
+  background-image: url('../images/ww@2x.png');
+}
+@media (-webkit-min-device-pixel-ratio: 3), (min-device-pixel-ratio: 3) {
+  .img {
+    background-image: url('../images/ww@3x.png');
+  }
+}

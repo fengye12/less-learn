@@ -1,0 +1,152 @@
+// 导入less，可以不加less后缀
+@import "line";
+// 导入css文件
+// @import (less) "line.css;
+
+@first_width: 300px;
+body{
+    background: #f8f8f8;
+}
+.box {
+    width: @first_width;
+    border: 1px solid rgb(7,17,27);
+}
+// 混合
+.box1{
+    .box;
+    background: yellow;
+}
+// 混合可带参数
+.border_02(@border-width){
+    border: @border-width solid #ddd;
+}
+.box2{
+    .border_02(4px);
+    margin-top: 30px;
+}
+// 混合--默认带值
+.border_03(@border-width:10px){
+    border: @border-width solid #ddd;
+}
+.border-radius(@width_radius:5px){
+    border-radius: @width_radius;
+   -webkit-border-radius: @width_radius;
+    -moliz-border-radius: @width_radius;
+}
+.box3{
+    .border_03();
+    margin-top: 30px;
+    width: 40px;
+    height: 50px;
+    .border-radius();
+}
+// 匹配模式
+.triangle(left,@w:5px,@c:#ccc){
+border-width : @w;
+border-color:  transparent @c transparent transparent;
+border-style:  dashed solid dashed dashed;//解决ie6下面的黑色
+}.triangle(top,@w:5px,@c:#ccc){
+border-width : @w;
+border-color:  transparent transparent @c transparent;
+border-style:  dashed dashed solid dashed;//解决ie6下面的黑色
+}.triangle(right,@w:5px,@c:#ccc){
+border-width : @w;
+border-color:  transparent transparent transparent @c;
+border-style:  dashed dashed dashed solid;//解决ie6下面的黑色
+}
+.triangle(bottom,@w:5px,@c:#ccc){
+border-width : @w;
+border-color: @c transparent transparent transparent;
+border-style: solid dashed dashed dashed;//解决ie6下面的黑色
+}
+.triangle(@_,@w:5px,@c:#ccc){
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+.sanjiao{
+ .triangle(right,100px);
+}
+.pos(r){
+    position: relative;
+}
+.pos(a){
+    position: absolute;
+}
+.pos(f){
+    position: fixed;
+}
+.posq{
+    height: 20px;
+    .pos(f);
+    background: red;
+    width: @first_width - 20;
+}
+.list{
+    width: 600px;
+    margin: auto;
+    list-style: none;
+    padding: 0;
+
+    li{
+        height: 30px;
+        line-height: 30px;
+        background: pink;
+        margin-bottom: 5px;
+
+        a{
+            color: blue;
+            &:hover{
+                color: red;
+            }
+        }
+        span{
+            float: left;
+        }
+
+    }
+
+}
+// argument
+.borde_05(@w:5px,@s:solid,@c:#ddd){
+border: @arguments;
+}
+.border_test{
+   .borde_05();
+   height: 20px;
+   width: 20px;
+}
+// 避免编译
+.test_03{
+    width: ~'calc(300px - 30px)';
+}
+// !important
+.tex{
+    .pos(a) !important;
+}
+.border{
+        width: 200px;
+        height: 50px;
+        background: yellow;
+        position: relative;
+        &:after{
+            .setTopLine();
+        }
+        &:before{
+                .setRightLine();
+            }
+    }
+   .img{
+    height: 75px;
+    width: 75px;
+    .bg-image('../images/ww');
+   }
+   @small: '@2x';
+  @bigger: '@3x';
+    .bg-image(@url){
+           background-image: url('@{url}@{small}.png');
+           @media (-webkit-min-device-pixel-ratio :3),(min-device-pixel-ratio :3){
+            background-image: url('@{url}@{bigger}.png');
+   }
+}
+
